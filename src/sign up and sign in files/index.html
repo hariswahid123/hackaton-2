@@ -9,29 +9,33 @@
 <body>
 
     <p id="message"></p>
-    <input type="email" value="email" id="email" placeholder="Enter Your Email">
-    <input type="password" value="password" id="password" placeholder="Enter Your Password">
+    <input type="email" id="email" placeholder="Enter Your Email">
+    <input type="password" id="password" placeholder="Enter Your Password">
 
     <button id="sign-in" onClick="signup()">sign In</button>
     <button id="sign-up" onClick="signin()">sign Up</button>
+
+    <script src="https://www.gstatic.com/firebasejs/12.3.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.3.0/firebase-auth-compat.js"></script>
     
-<script src="script.js"></script>
-<script>
-
- const firebaseConfig = {
-    apiKey: "AIzaSyC4uRrPsKuyMZrkg2cu_8vs2U8NrbwDoww",
-    authDomain: "hackaton-2-68a68.firebaseapp.com",
-    projectId: "hackaton-2-68a68",
-    storageBucket: "hackaton-2-68a68.firebasestorage.app",
-    messagingSenderId: "697672740414",
-    appId: "1:697672740414:web:167ed4c63f9547740dab6f",
-    measurementId: "G-9KE2D4HWHP"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
-</script>    
+    <script>
+      
+      const firebaseConfig = {
+        apiKey: "AIzaSyC4uRrPsKuyMZrkg2cu_8vs2U8NrbwDoww",
+        authDomain: "hackaton-2-68a68.firebaseapp.com",
+        projectId: "hackaton-2-68a68",
+        storageBucket: "hackaton-2-68a68.firebasestorage.app",
+        messagingSenderId: "697672740414",
+        appId: "1:697672740414:web:167ed4c63f9547740dab6f",
+        measurementId: "G-9KE2D4HWHP"
+      };
+      
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      
+      
+    </script>    
+      <script src="script.js"></script>
 </body>
 </html>
