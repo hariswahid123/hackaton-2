@@ -2,70 +2,31 @@
 let email = document.getElementById("email");
 let password = document.getElementById("password");
 let message = document.getElementById("message");
-let fb = firebase.auth();
+let name = document.getElementById("name");
 
-function signup() {
-
-    fb.createUserWithEmailAndPassword(email.value, password.value)
-  .then((userCredential) => {
-    // Signed in 
-    var user = userCredential.user;
-    message.innerHTML = "Sign Up Successful";
-    message.style.color = "green";
-    password.value = "";
-    email.value = "";
-    gotohomepage();
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    message.innerHTML = "Error: " + errorMessage;
-    message.style.color = "red";
-  });
-
-
-}
-
-function signin() {
-
-    fb.signInWithEmailAndPassword(email.value, password.value)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    message.innerHTML = "Sign In Successful";
-    message.style.color = "green";
-    password.value = "";
-    email.value = "";
-   gotohomepage();
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    message.innerHTML = "Error: " + errorMessage;
-    message.style.color = "red";
-  });
-
+function logIn() {
+  
+  if ( email.value == ""  || password.value === "" || name.value === ""){
+    alert("please enter your password , email and name");
+    return;
+  }else if( password.value.length < 6){
+    alert("your password is small");
+    return;
+  }
+  else{
+    let AddEmailLocalStorage = localStorage.setItem(" email " , email.value);
+      let AddpasswordLocalStorage = localStorage.setItem(" password " , password.value);
+      let AddNameLocalStorage = localStorage.setItem(" name " , name.value);
+    
+  }
+  message.innerHTML = "login sucessfully";
+  message.style.color = "green";
+  email.value =  "";
+  password.value =  "";
+  name.value =  "";
+  window.location = " ../html files/home.html "
 
 }
-
-function gotohomepage() {
-
-    window.location.href = "../html files/home.html";
-
-}
-
-function signout() {
-    fb.signOut().then(() => {
-  window.location.href = "../sign up and sign in files/index.html"  ;
-}).catch((error) => {
-console.log(error);
-
-});
-}
-
-
-
-
 
 
 
