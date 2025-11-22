@@ -223,3 +223,82 @@ h2 {
 .delete-btn:hover {
   color: #ff6b6b;
 }
+
+/* responsive */
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .create-post-child {
+        width: 70%;
+    }
+
+    .posts {
+        width: 95%;
+        gap: 15px;
+    }
+
+    .post {
+        width: calc(50% - 10px); /* 2 posts per row */
+    }
+
+    #search-posts {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .create-post-child {
+        width: 85%;
+        padding: 15px;
+    }
+
+    .posts {
+        gap: 12px;
+    }
+
+    .post {
+        width: 100%; /* 1 post per row */
+    }
+
+    #search-posts {
+        width: 70%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .create-post-child {
+        width: 95%;
+        padding: 10px;
+    }
+
+    #post-image, #post-text {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #search-posts {
+        width: 90%;
+    }
+
+    .post img {
+        height: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
