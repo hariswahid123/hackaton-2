@@ -1,33 +1,31 @@
-
 let email = document.getElementById("email");
 let password = document.getElementById("password");
-let message = document.getElementById("message");
 let name = document.getElementById("name");
+let message = document.getElementById("message");
 
 function logIn() {
-  
-  if ( email.value == ""  || password.value === "" || name.value === ""){
-    alert("please enter your password , email and name");
-    return;
-  }else if( password.value.length < 6){
-    alert("your password is small");
+  if (!email.value || !password.value || !name.value) {
+    alert("Please enter name, email, and password");
     return;
   }
-  else{
-    let AddEmailLocalStorage = localStorage.setItem(" email " , email.value);
-      let AddpasswordLocalStorage = localStorage.setItem(" password " , password.value);
-      let AddNameLocalStorage = localStorage.setItem(" name " , name.value);
-    
+
+  if (password.value.length < 6) {
+    alert("Password must be at least 6 characters");
+    return;
   }
-  message.innerHTML = "login sucessfully";
+
+  localStorage.setItem("name", name.value);
+  localStorage.setItem("email", email.value);
+  localStorage.setItem("password", password.value);
+
+  message.innerHTML = "Login successfully";
   message.style.color = "green";
-  email.value =  "";
-  password.value =  "";
-  name.value =  "";
-  window.location = " ../html files/home.html "
 
+  email.value = "";
+  password.value = "";
+  name.value = "";
+
+  setTimeout(() => {
+    window.location.href = "../html files/home.html";
+  }, 100);
 }
-
-
-
-

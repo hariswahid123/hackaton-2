@@ -3,10 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css file/home.css">
     <title>Document</title>
 </head>
 <body>
 
+    <p id="user-welcome"></p>
 
+    <nav class="navbar">
+  <div class="logo">TechVerse</div>
+  <button class="log-out" onClick = "logOut()">log out</button>
+</nav>
+
+<div class="create-post-parent">
+<div class="create-post-child">
+  <h2>Create Post</h2>
+  <p id="post-massage"></p>
+  <textarea required id="post-text" rows="3" cols="3" placeholder="Write something..."></textarea>
+  <input required type="text" id="post-image" placeholder="Image URL (optional)">
+  <button id="post-btn" onClick="post()">Post</button>
+</div>
+</div>
+
+<div class="posts-feed">
+  <h2>Feed</h2>
+
+  <div class="post">
+    <img src="../images/hello world.avif" alt="Post Image">
+    <div class="post-content">
+      <p>Hello world!</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:00 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/my first post.avif" alt="Post Image">
+    <div class="post-content">
+      <p>My first post</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:10 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/weather.avif" alt="Post Image">
+    <div class="post-content">
+      <p>Enjoying the weather today</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:20 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/mountain.avif" alt="Post Image">
+    <div class="post-content">
+      <p>Explore Mountain</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:20 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/food.avif" alt="Post Image">
+    <div class="post-content">
+      <p>Enjoying food</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:20 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/coding.avif" alt="Post Image">
+    <div class="post-content">
+      <p>i am a best coder</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:20 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/museum.avif" alt="Post Image">
+    <div class="post-content">
+      <p>Explore museum</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:20 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/japan.avif" alt="Post Image">
+    <div class="post-content">
+      <p>i am go to japan</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:20 PM</span>
+    </div>
+  </div>
+
+  <div class="post">
+    <img src="../images/BMW.avif" alt="Post Image">
+    <div class="post-content">
+      <p>My new car</p>
+    </div>
+    <div class="post-footer">
+      <span class="like-btn">❤️ 0</span>
+      <span class="delete-btn">Delete</span>
+      <span class="post-time">11/22/2025 12:20 PM</span>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<script src="../js files/home.js"></script>
 </body>
 </html>

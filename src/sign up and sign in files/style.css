@@ -73,7 +73,9 @@ body {
   text-decoration: underline;
 }
 
-
+.login-form #message{
+  text-align: center;
+}
 
 
 
