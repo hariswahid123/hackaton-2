@@ -56,7 +56,7 @@ function gotohomepage() {
 
 function signout() {
     fb.signOut().then(() => {
-  window.location.href = "../sign up and sign in files/index.html";
+  window.location.href = "../sign up and sign in files/index.html"  ;
 }).catch((error) => {
 console.log(error);
 
