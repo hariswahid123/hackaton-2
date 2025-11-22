@@ -49,3 +49,28 @@ posts.forEach(post => {
     }
   });
 });
+
+const searchInput = document.getElementById("search-posts");
+const posted = document.querySelectorAll(".post");
+
+searchInput.addEventListener("input", function() {
+    const query = searchInput.value.toLowerCase();
+
+    posted.forEach(post => {
+        const text = post.querySelector(".post-content p").innerText.toLowerCase();
+        if(text.includes(query)){
+            post.style.display = "block";
+        } else {
+            post.style.display = "none";
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
