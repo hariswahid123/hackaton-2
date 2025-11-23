@@ -1,28 +1,26 @@
-// User welcome
-let userName = localStorage.getItem("name") || "Guest";
-document.getElementById("user-welcome").innerText = "Welcome " + userName;
+let userName = localStorage.getItem("name") || "Haris";
+document.getElementById("user-welcome").innerHTML = `Welcome ${userName}`;
 
-// Log out
 function logOut(){
     window.location = "../sign up and sign in files/index.html";
 }
 
-// Elements
-let postText = document.getElementById("post-text");
-let postImage = document.getElementById("post-image");
+// Create post
+const postText = document.getElementById("post-text");
+const postImage = document.getElementById("post-image");
+const postBtn = document.getElementById("post-btn");
 const postsContainer = document.querySelector(".posts");
-const searchInput = document.getElementById("search-posts");
 
-// Create Post
-function post(){
+postBtn.addEventListener("click", () => {
     if(postText.value === "" || postImage.value === ""){
-        alert("Please fill all inputs");
+        alert("Please fill input");
         return;
     }
 
-    const postDiv = document.createElement('div');
-    postDiv.classList.add('post');
-    postDiv.innerHTML = `
+    const post = document.createElement("div");
+    post.classList.add("post");
+
+    post.innerHTML = `
         <img src="${postImage.value}" alt="Post Image">
         <div class="post-content"><p>${postText.value}</p></div>
         <div class="post-footer">
@@ -32,33 +30,35 @@ function post(){
         </div>
     `;
 
-    // Like button
-    const likeBtn = postDiv.querySelector(".like-btn");
-    let liked = false;
-    let count = 0;
+    // Add reactions
+    const likeBtn = post.querySelector(".like-btn");
+    const reactionsPanel = document.createElement("div");
+    reactionsPanel.classList.add("reactions-panel");
+
+    ["❤️","😂","😢","😡"].forEach(emoji => {
+        const span = document.createElement("span");
+        span.textContent = emoji;
+        span.addEventListener("click", () => { likeBtn.textContent = `${emoji} 1`; reactionsPanel.style.display = "none"; });
+        reactionsPanel.appendChild(span);
+    });
+    post.appendChild(reactionsPanel);
+
     likeBtn.addEventListener("click", () => {
-        liked = !liked;
-        count = liked ? 1 : 0;
-        likeBtn.classList.toggle("liked", liked);
-        likeBtn.innerText = `❤️ ${count}`;
+        reactionsPanel.style.display = reactionsPanel.style.display === "flex" ? "none" : "flex";
+        reactionsPanel.style.flexDirection = "row";
     });
 
-    // Delete button
-    const deleteBtn = postDiv.querySelector(".delete-btn");
-    deleteBtn.addEventListener("click", () => {
-        if(confirm("Are you sure you want to delete this post?")){
-            postDiv.remove();
-        }
+    post.querySelector(".delete-btn").addEventListener("click", () => {
+        if(confirm("Delete this post?")) post.remove();
     });
 
-    postsContainer.prepend(postDiv);
-
-    // Clear inputs
+    postsContainer.prepend(post);
     postText.value = "";
     postImage.value = "";
-}
+});
 
 // Search posts
+const searchInput = document.getElementById("search-posts");
 searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
     document.querySelectorAll(".post").forEach(post => {
@@ -67,7 +67,7 @@ searchInput.addEventListener("input", () => {
     });
 });
 
-// Theme toggle
+// Dark/Light mode
 const themeToggle = document.getElementById('theme-toggle');
 let savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', savedTheme);
@@ -86,23 +86,22 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// Existing posts like & delete functionality
+// Add reactions to existing posts
 document.querySelectorAll(".post").forEach(post => {
     const likeBtn = post.querySelector(".like-btn");
-    const deleteBtn = post.querySelector(".delete-btn");
-    let liked = false;
-    let count = 0;
+    const reactionsPanel = document.createElement("div");
+    reactionsPanel.classList.add("reactions-panel");
 
-    likeBtn.addEventListener("click", () => {
-        liked = !liked;
-        count = liked ? 1 : 0;
-        likeBtn.classList.toggle("liked", liked);
-        likeBtn.innerText = `❤️ ${count}`;
+    ["❤️","😂","😢","😡"].forEach(emoji => {
+        const span = document.createElement("span");
+        span.textContent = emoji;
+        span.addEventListener("click", () => { likeBtn.textContent = `${emoji} 1`; reactionsPanel.style.display = "none"; });
+        reactionsPanel.appendChild(span);
     });
 
-    deleteBtn.addEventListener("click", () => {
-        if(confirm("Are you sure you want to delete this post?")){
-            post.remove();
-        }
+    post.appendChild(reactionsPanel);
+    likeBtn.addEventListener("click", () => {
+        reactionsPanel.style.display = reactionsPanel.style.display === "flex" ? "none" : "flex";
+        reactionsPanel.style.flexDirection = "row";
     });
 });
